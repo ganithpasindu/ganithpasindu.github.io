@@ -12,7 +12,7 @@
   "readmeUrl": "apps/GP-screen-Strum/README.md",
   "images": [
     "apps/GP-screen-Strum/images/screen1.jpg",
-    ""
+    "apps/GP-screen-Strum/images/screen1.jpg"
   ],
   "changelog": "Enhanced socket communication reliability, added batch file transfer support, and UI scaling fixes.",
   "requirements": "Android 7.0+ / Windows 10/11",
