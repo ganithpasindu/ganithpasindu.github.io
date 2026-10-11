@@ -1,0 +1,20 @@
+{
+  "id": "GP screen stream",
+  "title": "PC & Android Sync",
+  "tagline": "v2.1.0 Tool",
+  "category": "Sync",
+  "icon": "🖥️",
+  "description": "Cross-platform utility tool to connect your PC and Android device seamlessly for quick file sharing and remote control.",
+  "fileSize": "APK: 5.39 MB | PC: 12.0 MB",
+  "androidUrl": "https://drive.google.com/file/d/1LJTels9UeDpZRzQ9bbsx4yV7ibBjgfZs/view?usp=drivesdk",
+  "pcUrl": "https://drive.google.com/file/d/1J20brt1L9ETIbbHHkd5q0D-qe9-Khm0K/view?usp=drivesdk",
+  "githubRepoUrl": "https://github.com/GanithPasindu/pc-android-sync",
+  "readmeUrl": "apps/GP-screen-Strum/README.md",
+  "images": [
+    "apps/GP-screen-Strum/images/screen1.jpg",
+    ""
+  ],
+  "changelog": "Enhanced socket communication reliability, added batch file transfer support, and UI scaling fixes.",
+  "requirements": "Android 7.0+ / Windows 10/11",
+  "sha256": "3a1c5e7f9b2d4a6c8e0f1a3b5c7d9e2f4a6b8c0d (Verified Secure)"
+}
