@@ -1,0 +1,20 @@
+{
+  "id": "gp-Share",
+  "title": "GP Share",
+  "tagline": "v1.0.0 Stable",
+  "category": "App",
+  "icon": "apps/gp-share/images/logo.png",
+  "description": "High-performance local file Share app.",
+  "fileSize": "6.50 MB",
+  "androidUrl": "https://drive.google.com/file/d/1oUj2AGK7SmNem9HNR7juOz_9yHNJbDTK/view?usp=drivesdk",
+  "pcUrl": "",
+  "githubRepoUrl": "",
+  "readmeUrl": "apps/GP-Share/README.md",
+  "images": [
+    "apps/GP-Share/images/screen1.jpg",
+    "apps/GP-Share/images/screen2.jpg"
+  ],
+  "changelog": "Added custom audio presets, bug fixes, and improved rendering speed.",
+  "requirements": "Android 8.0 or higher / 2GB RAM minimum",
+  "sha256": "8f4e2b1a9c3d7e5f6a2b4c8d1e3f5a7b9c2d4e6f (Verified Secure)"
+}
