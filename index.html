@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganith Pasindu | Portfolio & Apps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Professional Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <h2 class="loader-logo">GANITH PASINDU</h2>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
+    <div id="main-site">
+        
+        <!-- Global Announcement Banner -->
+        <div class="announcement-bar" id="announcement-bar">
+            <span>🔥 Welcome! Check out the latest application releases and cross-platform sync tools below.</span>
+            <button onclick="closeAnnouncement()">×</button>
+        </div>
+
+        <header class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">GANITH PASINDU</h1>
+                
+                <div class="nav-right">
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search apps & tools..." oninput="handleSearch()">
+                    </div>
+                    <nav>
+                        <a href="index.html" class="active">Home</a>
+                        <a href="apps.html">All Apps</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <span class="badge-pill">Creator & Developer Studio</span>
+            <h2>Building Mobile Apps & Cross-Platform Systems</h2>
+            <p>Explore official Android applications, desktop sync utilities, and open-source project repositories.</p>
+        </section>
+
+        <main class="main-container">
+            <div class="section-title">
+                <h3>Latest Releases</h3>
+                <p>Recently published projects and utilities</p>
+            </div>
+
+            <!-- Latest Apps Grid (Loaded via JS) -->
+            <div id="latest-grid" class="projects-grid"></div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Ganith Pasindu. Designed for performance and reliability.</p>
+        </footer>
+    </div>
+
+    <!-- Screenshots Lightbox Modal -->
+    <div id="lightbox-modal" class="modal" onclick="closeLightbox()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="lightbox-img">
+    </div>
+
+    <!-- Changelog / Details Modal -->
+    <div id="details-modal" class="modal" onclick="closeDetailsModal(event)">
+        <div class="details-modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeDetailsModal()">&times;</span>
+            <h3 id="modal-app-title">App Title</h3>
+            <span id="modal-app-version" class="version-tag">v1.0.0</span>
+            <div class="modal-body-text">
+                <h4>What's New / Changelog:</h4>
+                <p id="modal-changelog">Bug fixes and performance improvements.</p>
+                <h4 style="margin-top: 15px;">System Requirements:</h4>
+                <p id="modal-requirements">Android 8.0 or higher / Windows 10/11</p>
+                <h4 style="margin-top: 15px;">Security Checksum (SHA-256):</h4>
+                <code id="modal-hash" class="hash-box">a3b5c7d9e2f4... (Verified Secure)</code>
+            </div>
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <a id="modal-github-link" href="#" target="_blank" class="secondary-btn" style="text-decoration:none; text-align:center; flex:1;">GitHub Repo</a>
+                <a id="modal-readme-link" href="#" target="_blank" class="secondary-btn" style="text-decoration:none; text-align:center; flex:1;">README.md</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bug Report / Feedback Modal -->
+    <div class="feedback-container">
+        <button class="feedback-trigger-btn" onclick="toggleFeedbackModal()">💬 Report Bug / Feedback</button>
+        <div id="feedback-modal" class="feedback-popup">
+            <h4>Send Feedback or Bug Report</h4>
+            <input type="text" id="fb-name" placeholder="Your Name">
+            <textarea id="fb-msg" placeholder="Describe the bug or suggestion..."></textarea>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button class="download-btn" style="flex:1; padding: 6px;" onclick="sendFeedback()">Send</button>
+                <button class="secondary-btn" style="padding: 6px;" onclick="toggleFeedbackModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

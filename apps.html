@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Software & Apps | Ganith Pasindu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-site" style="display: block; opacity: 1;">
+        <header class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">GANITH PASINDU</h1>
+                <div class="nav-right">
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search apps..." oninput="handleSearch()">
+                    </div>
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <a href="apps.html" class="active">All Apps</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-container" style="margin-top: 40px;">
+            <div class="section-title">
+                <h3>All Applications & Tools</h3>
+                <p>Browse the complete library of developed software and cross-platform utilities</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="category-tabs">
+                <button class="tab-btn active" onclick="filterCategory('All')">All</button>
+                <button class="tab-btn" onclick="filterCategory('App')">Android Apps</button>
+                <button class="tab-btn" onclick="filterCategory('Sync')">PC & Mobile Sync</button>
+                <button class="tab-btn" onclick="filterCategory('Library')">Libraries & Tools</button>
+            </div>
+
+            <!-- All Apps Grid -->
+            <div id="all-apps-grid" class="projects-grid"></div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Ganith Pasindu. Designed for performance and reliability.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
