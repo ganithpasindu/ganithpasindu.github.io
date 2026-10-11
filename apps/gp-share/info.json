@@ -11,8 +11,8 @@
   "githubRepoUrl": "",
   "readmeUrl": "apps/GP-Share/README.md",
   "images": [
-    "apps/GP-Share/images/screen1.jpg",
-    "apps/GP-Share/images/screen2.jpg"
+    "apps/gp-share/images/screen1.jpg",
+    "apps/gp-share/images/screen2.jpg"
   ],
   "changelog": "Added custom audio presets, bug fixes, and improved rendering speed.",
   "requirements": "Android 8.0 or higher / 2GB RAM minimum",
