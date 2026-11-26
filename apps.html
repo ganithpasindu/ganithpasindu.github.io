@@ -6,6 +6,7 @@
     <title>All Software & Apps | Ganith Pasindu</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
 </head>
 <body>
 
@@ -46,6 +47,50 @@
         <footer>
             <p>&copy; 2026 Ganith Pasindu. Designed for performance and reliability.</p>
         </footer>
+    </div>
+
+    <!-- Screenshots Lightbox Modal -->
+    <div id="lightbox-modal" class="modal" onclick="closeLightbox()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="lightbox-img">
+    </div>
+
+    <!-- Changelog / Details Modal -->
+    <div id="details-modal" class="modal" onclick="closeDetailsModal(event)">
+        <div class="details-modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeDetailsModal()">&times;</span>
+            <h3 id="modal-app-title">App Title</h3>
+            <span id="modal-app-version" class="version-tag">v1.0.0</span>
+            <div class="modal-body-text">
+                <h4>What's New / Changelog:</h4>
+                <p id="modal-changelog">Bug fixes and performance improvements.</p>
+                <h4 style="margin-top: 15px;">System Requirements:</h4>
+                <p id="modal-requirements">Android 8.0 or higher / Windows 10/11</p>
+                <h4 style="margin-top: 15px;">Security Checksum (SHA-256):</h4>
+                <code id="modal-hash" class="hash-box">a3b5c7d9e2f4... (Verified Secure)</code>
+            </div>
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <a id="modal-github-link" href="#" target="_blank" class="secondary-btn" style="text-decoration:none; text-align:center; flex:1;">GitHub Repo</a>
+                <a id="modal-readme-link" href="#" target="_blank" class="secondary-btn" style="text-decoration:none; text-align:center; flex:1;">README.md</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ESP32 Web Installer Modal -->
+    <div id="esp-modal" class="modal" onclick="closeEspModal(event)">
+        <div class="details-modal-content" onclick="event.stopPropagation()" style="text-align: center;">
+            <span class="close-modal" onclick="closeEspModal()">&times;</span>
+            <h3 id="esp-modal-title">ESP32 Web Installer</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 8px;">
+                Connect your ESP32 via USB (Chrome / Edge / Opera) and click Connect to flash firmware.
+            </p>
+
+            <div id="esp-installer-container" style="margin: 24px 0; display: flex; justify-content: center;"></div>
+
+            <p style="color: var(--text-muted); font-size: 0.78rem;">
+                Make sure USB drivers (CP2102 / CH340) are installed if the port doesn't appear.
+            </p>
+        </div>
     </div>
 
     <script src="script.js"></script>

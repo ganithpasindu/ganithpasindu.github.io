@@ -6,6 +6,7 @@
     <title>Ganith Pasindu | Portfolio & Apps</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
 </head>
 <body>
 
@@ -19,7 +20,7 @@
 
     <!-- Main Website Content -->
     <div id="main-site">
-        
+
         <!-- Global Announcement Banner -->
         <div class="announcement-bar" id="announcement-bar">
             <span>🔥 Welcome! Check out the latest application releases and cross-platform sync tools below.</span>
@@ -29,7 +30,7 @@
         <header class="navbar">
             <div class="nav-container">
                 <h1 class="logo">GANITH PASINDU</h1>
-                
+
                 <div class="nav-right">
                     <div class="search-box">
                         <input type="text" id="search-input" placeholder="Search apps & tools..." oninput="handleSearch()">
@@ -87,6 +88,23 @@
                 <a id="modal-github-link" href="#" target="_blank" class="secondary-btn" style="text-decoration:none; text-align:center; flex:1;">GitHub Repo</a>
                 <a id="modal-readme-link" href="#" target="_blank" class="secondary-btn" style="text-decoration:none; text-align:center; flex:1;">README.md</a>
             </div>
+        </div>
+    </div>
+
+    <!-- ESP32 Web Installer Modal -->
+    <div id="esp-modal" class="modal" onclick="closeEspModal(event)">
+        <div class="details-modal-content" onclick="event.stopPropagation()" style="text-align: center;">
+            <span class="close-modal" onclick="closeEspModal()">&times;</span>
+            <h3 id="esp-modal-title">ESP32 Web Installer</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 8px;">
+                Connect your ESP32 via USB (Chrome / Edge / Opera) and click Connect to flash firmware.
+            </p>
+
+            <div id="esp-installer-container" style="margin: 24px 0; display: flex; justify-content: center;"></div>
+
+            <p style="color: var(--text-muted); font-size: 0.78rem;">
+                Make sure USB drivers (CP2102 / CH340) are installed if the port doesn't appear.
+            </p>
         </div>
     </div>
 

@@ -1,4 +1,5 @@
 const appPaths = [
+    'apps/Aura-pro/info.json',
     'apps/gp-share/info.json',
     'apps/GP-screen-Strum/info.json'
 ];
@@ -28,14 +29,17 @@ function renderCard(app) {
         downloadsHTML += `<a href="${app.androidUrl}" target="_blank" class="download-btn">Android APK</a>`;
     }
     if (app.pcUrl) {
-        downloadsHTML += `<a href="${app.pcUrl}" target="_blank" class="download-btn" style="background:var(--accent-color); color:white;">PC Tool</a>`;
+        downloadsHTML += `<a href="${app.pcUrl}" target="_blank" class="download-btn" style="background:var(--accent-color); color:white;">PC (.exe)</a>`;
     }
-    if (!app.androidUrl && !app.pcUrl && app.downloadUrl) {
+    if (app.espManifestUrl) {
+        downloadsHTML += `<button type="button" class="download-btn" style="background:#10b981; color:#fff;" onclick="openEspModal('${app.id}')">Flash ESP32</button>`;
+    }
+    if (!app.androidUrl && !app.pcUrl && !app.espManifestUrl && app.downloadUrl) {
         downloadsHTML += `<a href="${app.downloadUrl}" target="_blank" class="download-btn">Download</a>`;
     }
 
-    let iconHTML = app.icon.startsWith('http') || app.icon.includes('/') 
-        ? `<img src="${app.icon}" alt="Icon">` 
+    let iconHTML = app.icon && (app.icon.startsWith('http') || app.icon.includes('/'))
+        ? `<img src="${app.icon}" alt="Icon">`
         : (app.icon || '📱');
 
     return `
@@ -49,7 +53,7 @@ function renderCard(app) {
             </div>
             <p class="app-description">${app.description}</p>
             <div class="screenshot-gallery">
-                ${app.images.map(img => `<img src="${img}" alt="Screenshot" onclick="openLightbox('${img}')">`).join('')}
+                ${(app.images || []).map(img => `<img src="${img}" alt="Screenshot" onclick="openLightbox('${img}')">`).join('')}
             </div>
             <div class="card-footer">
                 <div class="downloads-row">
@@ -67,7 +71,7 @@ function renderCard(app) {
 function renderFilteredApps() {
     let filtered = allAppsCache.filter(app => {
         let matchesCat = (currentFilter === 'All' || app.category === currentFilter);
-        let matchesSearch = app.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        let matchesSearch = app.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             app.description.toLowerCase().includes(searchTerm.toLowerCase());
         return matchesCat && matchesSearch;
     });
@@ -86,7 +90,7 @@ function renderFilteredApps() {
 function filterCategory(cat) {
     currentFilter = cat;
     document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(cat.toLowerCase()) || (cat==='All' && btn.textContent==='All'));
+        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(cat.toLowerCase()) || (cat === 'All' && btn.textContent === 'All'));
     });
     renderFilteredApps();
 }
@@ -121,7 +125,7 @@ function openDetailsModalData(id) {
     document.getElementById('modal-changelog').textContent = app.changelog || "Initial stable release.";
     document.getElementById('modal-requirements').textContent = app.requirements || "Compatible platform.";
     document.getElementById('modal-hash').textContent = app.sha256 || "Verified Secure Hash";
-    
+
     document.getElementById('modal-github-link').href = app.githubRepoUrl || "#";
     document.getElementById('modal-readme-link').href = app.readmeUrl || "#";
 
@@ -130,6 +134,39 @@ function openDetailsModalData(id) {
 function closeDetailsModal(event) {
     if (!event || event.target.id === 'details-modal' || event.target.classList.contains('close-modal')) {
         document.getElementById('details-modal').style.display = 'none';
+    }
+}
+
+function openEspModal(id) {
+    const app = allAppsCache.find(a => a.id === id);
+    const modal = document.getElementById('esp-modal');
+    const container = document.getElementById('esp-installer-container');
+    const titleEl = document.getElementById('esp-modal-title');
+
+    if (!app || !app.espManifestUrl || !modal || !container) return;
+
+    titleEl.textContent = `${app.title} — ESP32 Installer`;
+    container.innerHTML = `
+        <esp-web-install-button manifest="${app.espManifestUrl}">
+            <button slot="activate" class="download-btn" style="padding: 10px 20px; font-size: 0.9rem;">
+                Connect & Flash ESP32
+            </button>
+            <span slot="unsupported" style="color: #f87171; font-size: 0.85rem;">
+                Your browser doesn't support Web Serial. Use Chrome or Edge.
+            </span>
+            <span slot="not-allowed" style="color: #fbbf24; font-size: 0.85rem;">
+                HTTPS or localhost is required for Web Serial.
+            </span>
+        </esp-web-install-button>
+    `;
+    modal.style.display = 'flex';
+}
+function closeEspModal(event) {
+    if (!event || event.target.id === 'esp-modal' || event.target.classList.contains('close-modal')) {
+        const modal = document.getElementById('esp-modal');
+        const container = document.getElementById('esp-installer-container');
+        if (modal) modal.style.display = 'none';
+        if (container) container.innerHTML = '';
     }
 }
 
@@ -146,7 +183,7 @@ function toggleFeedbackModal() {
 }
 function sendFeedback() {
     const msg = document.getElementById('fb-msg').value;
-    if(!msg) { alert("Please write a message!"); return; }
+    if (!msg) { alert("Please write a message!"); return; }
     alert("Thank you! Your feedback has been recorded.");
     toggleFeedbackModal();
     document.getElementById('fb-name').value = '';
