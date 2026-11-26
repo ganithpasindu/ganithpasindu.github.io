@@ -1,19 +1,16 @@
 {
-  "id": "my-esp32-pc-tool",
-  "title": "ESP32 Controller & PC Companion",
-  "tagline": "v1.0.0 Firmware + Tool",
-  "category": "Library",
-  "icon": "⚡",
+  "id": "Aura-pro",
+  "title": "Aura Pro — Ambient Light & PC App",
+  "tagline": "v1.0.0 Firmware + PC Tool",
+  "category": "Ambiyanlight sestam",
+  "icon": "apps/Aura-pro/images/icon.png",
   "description": "Flash ESP32 firmware directly from the browser via Web Serial and download the Windows companion executable.",
-  "fileSize": "EXE: 14.2 MB | ESP32 Web",
-  "pcUrl": "https://github.com/GanithPasindu/your-repo/releases/latest/download/app-windows.exe",
-  "espManifestUrl": "apps/my-esp32-pc-tool/manifest.json",
-  "githubRepoUrl": "https://github.com/GanithPasindu/your-repo",
-  "readmeUrl": "apps/my-esp32-pc-tool/README.md",
-  "images": [
-    "apps/my-esp32-pc-tool/images/screen1.jpg"
-  ],
+  "fileSize": "EXE: 5.42 MB | ESP32 Web",
+  "pcUrl": "https://github.com/GanithPasindu/Aura-pro/releases/latest/download/Aura_pro_Setup.exe",
+  "espManifestUrl": "apps/Aura-pro/manifest.json",
+  "githubRepoUrl": "https://github.com/GanithPasindu/Aura-pro",
+  "readmeUrl": "apps/Aura-pro/README.md",
+  "images": [],
   "changelog": "Added browser-based ESP32 Web Serial flashing and Windows EXE release.",
-  "requirements": "Chrome/Edge (Web Serial) for ESP32 | Windows 10/11 (64-bit) for EXE",
-  "sha256": "ඔයාගේ .exe file එකේ SHA-256 hash එක"
+  "requirements": "Chrome/Edge (Web Serial) for ESP32 | Windows 10/11 (64-bit) for EXE"
 }
